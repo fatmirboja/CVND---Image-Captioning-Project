@@ -35,14 +35,10 @@ class DecoderRNN(nn.Module):
 
     def forward(self, features, captions):
         features = features.view(len(features), 1, -1)
-        print(features)
 
         embeddings = self.embed(captions[:, :-1])
-        print(embeddings)
 
         inputs = torch.cat((features, embeddings), 1)
-        print(input)
-
         out, hidden = self.lstm(inputs)
 
         out = self.fc(out)
