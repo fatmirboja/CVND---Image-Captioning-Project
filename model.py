@@ -30,7 +30,7 @@ class DecoderRNN(nn.Module):
         self.num_layers = num_layers
 
         self.embed = nn.Embedding(vocab_size, embed_size)
-        # Important: batch_first=True, since we 
+        # Important: batch_first=True, since we deliver the input in batches 
         self.lstm = nn.LSTM(embed_size, hidden_size, num_layers, batch_first=True)
         self.fc = nn.Linear(hidden_size, vocab_size)
 
